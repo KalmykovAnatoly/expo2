@@ -3,108 +3,29 @@
  * https://github.com/facebook/react-native
  *
  * @format
- * @flow
  * @lint-ignore-every XPLATJSCOPYRIGHT1
  */
 
 import React, {Component} from 'react';
-import {Image, Platform, ScrollView, StyleSheet, Text, View} from 'react-native';
-import Desk from "./Desk";
+import {StyleSheet, View} from 'react-native';
+import Desk from "./component/Desk";
+import ScrollList from "./component/ScrollList";
+import reducer from "./reducer";
+import {createStore} from 'redux'
+import {Provider} from 'react-redux';
 
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-    android:
-        'Double tap R on your keyboard to reload,\n' +
-        'Shake or press menu button for dev menu',
-});
+const store = createStore(reducer);
 
-type Props = {};
-export default class App extends Component<Props> {
-
-    images = [
-        {
-            id: 1,
-            name: 'abaddon',
-            race: 'undead',
-            clazz: 'knight',
-            source: require('./portraits/npc_dota_hero_abaddon.png')
-        },
-        {
-            id: 2,
-            name: 'abyssal underlord',
-            race: 'undead',
-            clazz: 'warrior',
-            source: require('./portraits/npc_dota_hero_abyssal_underlord.png')
-        },
-        {
-            id: 3,
-            name: 'alchemist',
-            race: 'undead',
-            clazz: 'warrior',
-            source: require('./portraits/npc_dota_hero_alchemist.png')
-        },
-        {
-            id: 1,
-            name: 'abaddon',
-            race: 'undead',
-            clazz: 'knight',
-            source: require('./portraits/npc_dota_hero_abaddon.png')
-        },
-        {
-            id: 2,
-            name: 'abyssal underlord',
-            race: 'undead',
-            clazz: 'warrior',
-            source: require('./portraits/npc_dota_hero_abyssal_underlord.png')
-        },
-        {
-            id: 3,
-            name: 'alchemist',
-            race: 'undead',
-            clazz: 'warrior',
-            source: require('./portraits/npc_dota_hero_alchemist.png')
-        },
-        {
-            id: 1,
-            name: 'abaddon',
-            race: 'undead',
-            clazz: 'knight',
-            source: require('./portraits/npc_dota_hero_abaddon.png')
-        },
-        {
-            id: 2,
-            name: 'abyssal underlord',
-            race: 'undead',
-            clazz: 'warrior',
-            source: require('./portraits/npc_dota_hero_abyssal_underlord.png')
-        },
-        {
-            id: 3,
-            name: 'alchemist',
-            race: 'undead',
-            clazz: 'warrior',
-            source: require('./portraits/npc_dota_hero_alchemist.png')
-        },
-    ];
+export default class App extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>Welcome Tolyan!</Text>
-                <Text style={styles.instructions}>To get started, edit App.js</Text>
-                <Text style={styles.instructions}>{instructions}</Text>
-                <Desk/>
-                <ScrollView
-                    horizontal
-                    pagingEnabled
-                    showsHorizontalScrollIndicator={false}>
-                    {this.images.map(image => {
-                            return <Image source={image.source}
-                                          style={styles.stretch}/>
-                        }
-                    )}
-                </ScrollView>
-            </View>
+            <Provider store={store}>
+                <View style={styles.container}>
+                    <ScrollList/>
+                    <Desk/>
+                </View>
+            </Provider>
         );
     }
 }
@@ -114,7 +35,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#D56B78',
     },
     welcome: {
         fontSize: 20,

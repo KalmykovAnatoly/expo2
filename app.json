@@ -10,9 +10,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./portraits/npc_dota_neutral_kobold_foreman.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./portrait/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
