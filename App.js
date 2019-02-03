@@ -30,7 +30,7 @@ export default class App extends Component {
     }
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
@@ -42,9 +42,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         margin: 10,
     },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
+    portrait: {
+        borderWidth: 3,
+        borderRadius: 5,
+        margin: 5
     },
 });

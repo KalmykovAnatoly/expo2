@@ -1,37 +1,37 @@
 import React, {Component} from 'react'
-import {Text, TouchableHighlight, View} from 'react-native';
+import {TouchableHighlight, View} from 'react-native';
 import {connect} from 'react-redux';
 import * as actions from "../actions";
 
 class Cell extends Component {
 
-    click = () => {
-        if (this.props.isEven) {
-            console.log("Y");
-            this.props.inc();
+    click(x, y) {
+        if (this.props.isPressed) {
+            this.props.pressCell({x: -1, y: -1})
         } else {
-            console.log("N");
-            this.props.dec();
+            this.props.pressCell({x: x, y: y})
         }
-    };
+    }
 
     render() {
-        const {isEven, counter} = this.props;
+        const {isEven, isPressed, x, y} = this.props;
         const dark = '#0D1F21';
         const light = '#143441';
+        const pressed = '#B2F6BB';
         return (
-            <TouchableHighlight onPress={() => this.click()}>
-                <View style={{height: 30, width: 30, backgroundColor: isEven ? dark : light}}>
-                    <Text>{counter}</Text>
+            <TouchableHighlight
+                onPress={() => this.click(x, y)}>
+                <View style={{height: 35, width: 35, backgroundColor: isPressed ? pressed : isEven ? dark : light}}>
                 </View>
             </TouchableHighlight>
         )
     }
 }
 
-const mapStateToProps = (state) => {
+export const mapStateToProps = (state) => {
     return {
-        counter: state
+        pressedCell: state.pressedCell,
+        pressedHero: state.pressedHero
     }
 };
 

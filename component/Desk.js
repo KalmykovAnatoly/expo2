@@ -1,15 +1,18 @@
 import React, {Component} from 'react'
 import {View} from 'react-native';
-import Cell from "./Cell";
+import Cell, {mapStateToProps} from "./Cell";
+import connect from "react-redux/es/connect/connect";
+import * as actions from "../actions";
 
-export default class Desk extends Component {
+class Desk extends Component {
 
     render() {
+        const {pressedCell} = this.props;
         const matrix = [];
         for (let i = 0; i < 8; i++) {
             matrix[i] = [];
             for (let j = 0; j < 8; j++) {
-                matrix[i][j] = i
+                matrix[i][j] = pressedCell.x === j && pressedCell.y === i;
             }
         }
         return (
@@ -21,6 +24,7 @@ export default class Desk extends Component {
                             {row.map((column, j) => (<Cell key={j}
                                                            x={j}
                                                            y={i}
+                                                           isPressed={matrix[i][j]}
                                                            isEven={(i + j) % 2}/>))}
                         </View>
                     ))
@@ -29,3 +33,5 @@ export default class Desk extends Component {
         )
     }
 }
+
+export default connect(mapStateToProps, actions)(Desk);
