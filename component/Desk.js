@@ -3,6 +3,7 @@ import {View} from 'react-native';
 import Cell, {mapStateToProps} from "./Cell";
 import connect from "react-redux/es/connect/connect";
 import * as actions from "../actions";
+import {styles} from '../App';
 
 class Desk extends Component {
 
@@ -16,7 +17,7 @@ class Desk extends Component {
             }
         }
         return (
-            <View>
+            <View style={styles.desk}>
                 {
                     matrix.map((row, i) => (
                         <View key={i}

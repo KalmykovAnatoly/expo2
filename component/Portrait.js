@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {Image, TouchableHighlight, View, StyleSheet} from 'react-native';
 import {styles} from '../App';
-import {mapStateToProps} from "./Cell";
 import connect from "react-redux/es/connect/connect";
 import * as actions from "../actions";
 
@@ -33,5 +32,11 @@ class Portrait extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        pressedCell: state.pressedCell,
+        pressedHero: state.pressedHero
+    }
+};
 
 export default connect(mapStateToProps, actions)(Portrait);

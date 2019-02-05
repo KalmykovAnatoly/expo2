@@ -33,18 +33,22 @@ export default class App extends Component {
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#D56B78',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
+        justifyContent: 'center'
     },
     portrait: {
         borderWidth: 3,
         borderRadius: 5,
         margin: 5
     },
+    icon:{
+        flex:1,
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'center'
+    },
+    desk:{
+        flex:1,
+        alignItems:'center',
+        justifyContent:'center'
+    }
 });

@@ -1,27 +1,38 @@
 import React, {Component} from 'react'
-import {TouchableHighlight, View} from 'react-native';
+import {Image, TouchableHighlight, View} from 'react-native';
 import {connect} from 'react-redux';
 import * as actions from "../actions";
+import {styles} from '../App';
+import {images} from './ScrollList'
 
 class Cell extends Component {
 
+    isPressed = false;
+
     click(x, y) {
-        if (this.props.isPressed) {
-            this.props.pressCell({x: -1, y: -1})
+        console.log("isPressed", this.props.isPressed);
+        if (this.isPressed) {
+            console.log("first");
+            this.img = null;
+            this.props.pressCell({x: -1, y: -1});
         } else {
+            console.log("second");
+            this.img = images[this.props.pressedHero];
             this.props.pressCell({x: x, y: y})
         }
     }
 
     render() {
-        const {isEven, isPressed, x, y} = this.props;
+        const {isEven, x, y} = this.props;
         const dark = '#0D1F21';
         const light = '#143441';
-        const pressed = '#B2F6BB';
         return (
             <TouchableHighlight
                 onPress={() => this.click(x, y)}>
-                <View style={{height: 35, width: 35, backgroundColor: isPressed ? pressed : isEven ? dark : light}}>
+                <View style={{height: 35, width: 35, backgroundColor: isEven ? dark : light}}>
+                    <View style={styles.icon}>
+                        {this.img ? <Image source={this.img.icon}/> : null}
+                    </View>
                 </View>
             </TouchableHighlight>
         )
