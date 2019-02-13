@@ -3,35 +3,38 @@ import {Image, TouchableHighlight, View} from 'react-native';
 import {connect} from 'react-redux';
 import * as actions from "../actions";
 import {styles} from '../App';
-import {images} from './ScrollList'
+import {images} from './HeroList'
 
 class Cell extends Component {
 
-    isPressed = false;
+    state = {img: null};
 
     click(x, y) {
-        console.log("isPressed", this.props.isPressed);
-        if (this.isPressed) {
-            console.log("first");
-            this.img = null;
-            this.props.pressCell({x: -1, y: -1});
+        if (this.state.img === null || this.state.img.id !== this.props.pressedHero) {
+            this.props.pressCell({x: x, y: y});
+            this.setState({
+                img: images[this.props.pressedHero]
+            });
         } else {
-            console.log("second");
-            this.img = images[this.props.pressedHero];
-            this.props.pressCell({x: x, y: y})
+            this.props.pullCell({x: this.props.x, y: this.props.y});
+            this.setState({
+                img: null
+            });
         }
     }
 
     render() {
         const {isEven, x, y} = this.props;
+        const {img} = this.state;
         const dark = '#0D1F21';
         const light = '#143441';
+
         return (
             <TouchableHighlight
                 onPress={() => this.click(x, y)}>
                 <View style={{height: 35, width: 35, backgroundColor: isEven ? dark : light}}>
                     <View style={styles.icon}>
-                        {this.img ? <Image source={this.img.icon}/> : null}
+                        {img ? <Image source={img.icon}/> : null}
                     </View>
                 </View>
             </TouchableHighlight>
@@ -39,9 +42,8 @@ class Cell extends Component {
     }
 }
 
-export const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
-        pressedCell: state.pressedCell,
         pressedHero: state.pressedHero
     }
 };

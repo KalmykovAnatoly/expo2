@@ -12,6 +12,12 @@ export const pressCell = (pressed) => {
         payload: pressed
     }
 };
+export const pullCell = (pressed) => {
+    return {
+        type: 'PULL_CELL',
+        payload: pressed
+    }
+};
 export const pressHero = (pressed) => {
     return {
         type: 'PRESS_HERO',

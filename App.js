@@ -9,7 +9,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
 import Desk from "./component/Desk";
-import ScrollList from "./component/ScrollList";
+import HeroList from "./component/HeroList";
 import reducer from "./reducer";
 import {createStore} from 'redux'
 import {Provider} from 'react-redux';
@@ -22,7 +22,7 @@ export default class App extends Component {
         return (
             <Provider store={store}>
                 <View style={styles.container}>
-                    <ScrollList/>
+                    <HeroList/>
                     <Desk/>
                 </View>
             </Provider>

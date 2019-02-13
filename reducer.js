@@ -1,6 +1,8 @@
+import {deleteFromArray} from "./functions";
+
 const initialState = {
     counter: 1,
-    pressedCell: {x:2,y:3},
+    pressedCells: [],
     pressedHero: 2,
 };
 
@@ -14,7 +16,9 @@ const reducer = (state = initialState, action) => {
         case 'RND':
             return {...state, counter:state.counter + action.payload};
         case 'PRESS_CELL':
-            return {...state, pressedCell: action.payload};
+            return {...state, pressedCells: [...state.pressedCells, action.payload]};
+        case 'PULL_CELL':
+            return {...state, pressedCells: deleteFromArray(state.pressedCells, action.payload)};
         case 'PRESS_HERO':
             return {...state, pressedHero: action.payload};
         default:

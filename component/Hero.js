@@ -4,7 +4,7 @@ import {styles} from '../App';
 import connect from "react-redux/es/connect/connect";
 import * as actions from "../actions";
 
-class Portrait extends Component {
+class Hero extends Component {
 
     click = (id) => {
         if (id===this.props.pressedHero){
@@ -39,4 +39,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, actions)(Portrait);
+export default connect(mapStateToProps, actions)(Hero);

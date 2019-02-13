@@ -1,21 +1,26 @@
 import React, {Component} from 'react'
 import {View} from 'react-native';
-import Cell, {mapStateToProps} from "./Cell";
+import Cell from "./Cell";
 import connect from "react-redux/es/connect/connect";
 import * as actions from "../actions";
 import {styles} from '../App';
 
 class Desk extends Component {
 
-    render() {
-        const {pressedCell} = this.props;
-        const matrix = [];
+    constructor() {
+        super();
+        this.originMatrix = [];
         for (let i = 0; i < 8; i++) {
-            matrix[i] = [];
+            this.originMatrix[i] = [];
             for (let j = 0; j < 8; j++) {
-                matrix[i][j] = pressedCell.x === j && pressedCell.y === i;
+                this.originMatrix[i][j] = false;
             }
         }
+    }
+
+    render() {
+        const matrix = JSON.parse(JSON.stringify(this.originMatrix));
+
         return (
             <View style={styles.desk}>
                 {
@@ -25,7 +30,7 @@ class Desk extends Component {
                             {row.map((column, j) => (<Cell key={j}
                                                            x={j}
                                                            y={i}
-                                                           isPressed={matrix[i][j]}
+                                                           isPressed={column}
                                                            isEven={(i + j) % 2}/>))}
                         </View>
                     ))
@@ -34,5 +39,11 @@ class Desk extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        pressedCells: state.pressedCells,
+    }
+};
 
 export default connect(mapStateToProps, actions)(Desk);
