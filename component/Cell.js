@@ -3,17 +3,17 @@ import {Image, TouchableHighlight, View} from 'react-native';
 import {connect} from 'react-redux';
 import * as actions from "../actions";
 import {styles} from '../App';
-import {images} from './HeroList'
+import {heroes} from './HeroList'
 
 class Cell extends Component {
 
     state = {img: null};
 
     click(x, y) {
-        if (this.state.img === null || this.state.img.id !== this.props.pressedHero) {
+        if (this.state.img === null || typeof this.state.img === 'undefined' || this.state.img.id !== this.props.pressedHero) {
             this.props.pressCell({x: x, y: y});
             this.setState({
-                img: images[this.props.pressedHero]
+                img: heroes[this.props.pressedHero]
             });
         } else {
             this.props.pullCell({x: this.props.x, y: this.props.y});

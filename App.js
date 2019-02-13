@@ -13,6 +13,7 @@ import HeroList from "./component/HeroList";
 import reducer from "./reducer";
 import {createStore} from 'redux'
 import {Provider} from 'react-redux';
+import RoleList from "./component/RoleList";
 
 const store = createStore(reducer);
 
@@ -23,6 +24,7 @@ export default class App extends Component {
             <Provider store={store}>
                 <View style={styles.container}>
                     <HeroList/>
+                    <RoleList/>
                     <Desk/>
                 </View>
             </Provider>
@@ -33,12 +35,18 @@ export default class App extends Component {
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        color: '#B59995'
     },
-    portrait: {
+    hero: {
         borderWidth: 3,
         borderRadius: 5,
         margin: 5
+    },
+    role: {
+        borderWidth: 3,
+        borderRadius: 5,
+        margin: 3
     },
     icon:{
         flex:1,

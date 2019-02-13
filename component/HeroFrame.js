@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
-import {Image, TouchableHighlight, View, StyleSheet} from 'react-native';
+import {Image, TouchableHighlight, View, StyleSheet, Text} from 'react-native';
 import {styles} from '../App';
 import connect from "react-redux/es/connect/connect";
 import * as actions from "../actions";
 
-class Hero extends Component {
+class HeroFrame extends Component {
 
     click = (id) => {
         if (id===this.props.pressedHero){
@@ -15,18 +15,19 @@ class Hero extends Component {
     };
 
     render() {
-        const {id, source, pressedHero} = this.props;
-        let style = styles.portrait;
+        const {id, source, pressedHero, name} = this.props;
+        let style = styles.hero;
         if (id === pressedHero){
             style = StyleSheet.flatten([
-                styles.portrait,
+                styles.hero,
                 {borderColor: '#B2F6BB'},
             ]);
         }
         return (
             <TouchableHighlight onPress={() => this.click(id)}>
                 <View style={style}>
-                    <Image source={source}/>
+                    <Image source={source} />
+                    <Text style={{textAlign:'center'}}>{name}</Text>
                 </View>
             </TouchableHighlight>
         )
@@ -39,4 +40,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, actions)(Hero);
+export default connect(mapStateToProps, actions)(HeroFrame);
