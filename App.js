@@ -14,6 +14,7 @@ import reducer from "./reducer";
 import {createStore} from 'redux'
 import {Provider} from 'react-redux';
 import RoleList from "./component/RoleList";
+import ClassList from "./component/ClassList";
 
 const store = createStore(reducer);
 
@@ -25,6 +26,7 @@ export default class App extends Component {
                 <View style={styles.container}>
                     <HeroList/>
                     <RoleList/>
+                    <ClassList/>
                     <Desk/>
                 </View>
             </Provider>

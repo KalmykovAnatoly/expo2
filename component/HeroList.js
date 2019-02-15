@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {ScrollView, View} from 'react-native';
 import HeroFrame from "./HeroFrame";
 import {RoleEnum} from "./RoleList";
+import {ClassEnum} from "./ClassList";
 
 export default class HeroList extends Component {
 
@@ -21,18 +22,6 @@ export default class HeroList extends Component {
         )
     }
 }
-export const ClassEnum = {
-    warrior: "Warrior",
-    druid: "Druid",
-    mage: "Mage",
-    hunter: "Hunter",
-    assasin: "Assasin",
-    mech: "Mech",
-    shaman: "Shaman",
-    knight: "Knight",
-    demon_hunter: "Demon hunter",
-    warlock: "Warlock",
-};
 
 export const HeroEnum = {
     axe: "Axe",

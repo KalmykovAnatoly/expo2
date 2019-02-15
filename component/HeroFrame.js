@@ -16,7 +16,7 @@ class HeroFrame extends Component {
     };
 
     render() {
-        const {id, source, pressedHero, name, clazz} = this.props;
+        const {id, source, pressedHero, name} = this.props;
         let style = styles.hero;
         if (id === pressedHero) {
             style = StyleSheet.flatten([
@@ -28,7 +28,7 @@ class HeroFrame extends Component {
             <TouchableHighlight onPress={() => this.click(id)}>
                 <View style={style}>
                     <Image source={source}/>
-                    <TransparentLabel fontSize={8} height={20}>{name}</TransparentLabel>
+                    <TransparentLabel fontSize={10} height={20}>{name}</TransparentLabel>
                 </View>
             </TouchableHighlight>
         )

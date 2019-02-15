@@ -17,8 +17,8 @@ class RoleFrame extends Component {
         return (
             <TouchableHighlight onPress={() => this.click(id)}>
                 <View style={styles.role}>
-                    <Image source={source} style={{height: 52, width: 52}}/>
-                    <TransparentLabel fontSize={10}>{name}</TransparentLabel>
+                    <Image source={source} style={{height: 60, width: 60}}/>
+                    <TransparentLabel fontSize={10} height={20}>{name}</TransparentLabel>
                 </View>
             </TouchableHighlight>
         )
