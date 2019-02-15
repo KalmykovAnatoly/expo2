@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
-import {Image, TouchableHighlight, View, Text} from 'react-native';
+import {Image, TouchableHighlight, View} from 'react-native';
 import connect from "react-redux/es/connect/connect";
 import * as actions from "../actions";
 import {styles} from '../App';
+import TransparentLabel from "./TransparentLabel";
 
 class RoleFrame extends Component {
 
@@ -11,13 +12,13 @@ class RoleFrame extends Component {
     };
 
     render() {
-        const {id, source} = this.props;
+        const {id, source, name} = this.props;
 
         return (
             <TouchableHighlight onPress={() => this.click(id)}>
                 <View style={styles.role}>
-                    <Image source={source} style={{height:52, width: 52}}/>
-                    <Text style={{textAlign:'center'}}>Element</Text>
+                    <Image source={source} style={{height: 52, width: 52}}/>
+                    <TransparentLabel fontSize={10}>{name}</TransparentLabel>
                 </View>
             </TouchableHighlight>
         )

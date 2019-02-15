@@ -11,78 +11,95 @@ export default class RoleList extends Component {
                     horizontal
                     showsHorizontalScrollIndicator={false}>
                     {roles.map(role => <RoleFrame key={role.id}
-                                               id={role.id}
-                                               source={role.source}/>)}
+                                                  id={role.id}
+                                                  name={role.name}
+                                                  source={role.source}/>)}
                 </ScrollView>
             </View>
         )
     }
 }
 
+export const RoleEnum = {
+    orc: "Orc",
+    beast: "Beast",
+    ogre: "Ogre",
+    undead: "Undead",
+    goblin: "Goblin",
+    troll: "Troll",
+    elf: "Elf",
+    human: "Human",
+    demon: "Demon",
+    naga: "Naga",
+    dragon: "Dragon",
+    dwarf: "Dwarf",
+    element: "Element",
+};
+
 export const roles = [
     {
         id: 0,
-        name: 'orc',
+        name: RoleEnum.orc,
         source: require('../images/role/orc.png')
     },
     {
         id: 1,
-        name: 'beast',
+        name: RoleEnum.beast,
         source: require('../images/role/beast.png')
     },
     {
         id: 2,
-        name: 'ogre',
+        name: RoleEnum.ogre,
         source: require('../images/role/ogre.png')
     },
     {
         id: 3,
-        name: 'undead',
+        name: RoleEnum.undead,
         source: require('../images/role/undead.png')
     },
     {
         id: 4,
-        name: 'goblin',
+        name: RoleEnum.goblin,
         source: require('../images/role/goblin.png')
     },
     {
         id: 5,
-        name: 'troll',
+        name: RoleEnum.troll,
         source: require('../images/role/troll.png')
     },
     {
         id: 6,
-        name: 'elf',
+        name: RoleEnum.elf,
         source: require('../images/role/elf.png')
     },
     {
         id: 7,
-        name: 'human',
+        name: RoleEnum.human,
         source: require('../images/role/human.png')
     },
     {
         id: 8,
-        name: 'demon',
+        name: RoleEnum.demon,
         source: require('../images/role/demon.png')
     },
     {
         id: 9,
-        name: 'naga',
+        name: RoleEnum.naga,
         source: require('../images/role/naga.png')
     },
     {
         id: 10,
-        name: 'dragon',
+        name: RoleEnum.dragon,
         source: require('../images/role/dragon.png')
     },
     {
         id: 11,
-        name: 'dwarf',
+        name: RoleEnum.dwarf,
         source: require('../images/role/dwarf.png')
     },
     {
         id: 12,
-        name: 'element',
+        name: RoleEnum.element,
         source: require('../images/role/element.png')
     },
 ];

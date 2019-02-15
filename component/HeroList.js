@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {ScrollView, View} from 'react-native';
 import HeroFrame from "./HeroFrame";
+import {RoleEnum} from "./RoleList";
 
 export default class HeroList extends Component {
 
@@ -13,13 +14,14 @@ export default class HeroList extends Component {
                     {heroes.map(hero => <HeroFrame key={hero.id}
                                                    id={hero.id}
                                                    name={hero.name}
+                                                   clazz={hero.clazz}
                                                    source={hero.source}/>)}
                 </ScrollView>
             </View>
         )
     }
 }
-const ClassEnum = {
+export const ClassEnum = {
     warrior: "Warrior",
     druid: "Druid",
     mage: "Mage",
@@ -32,23 +34,7 @@ const ClassEnum = {
     warlock: "Warlock",
 };
 
-const RoleEnum = {
-    orc: "Orc",
-    beast: "Beast",
-    ogre: "Ogre",
-    undead: "Undead",
-    goblin: "Goblin",
-    troll: "Troll",
-    elf: "Elf",
-    human: "Human",
-    demon: "Demon",
-    naga: "Naga",
-    dragon: "Dragon",
-    dwarf: "Dwarf",
-    element: "Element",
-};
-
-const HeroEnum = {
+export const HeroEnum = {
     axe: "Axe",
     enchantress: "Enchantress",
     ogre_magi: "Ogre magi",
@@ -85,7 +71,24 @@ const HeroEnum = {
     slark: "Slark",
     sniper: "Sniper",
     viper: "Viper",
-    shadow_fiend: "Shadow fiend"
+    shadow_fiend: "Shadow fiend",
+    lina: "Lina",
+    terrorblade: "Terrorblade",
+    doom: "Doom",
+    kunkka: "Kunkka",
+    troll: "Troll",
+    keeper_of_the_light: "Keeper of the light",
+    necrophos: "Necrophos",
+    templar_assasin: "Templar assasin",
+    alchemist: "Alchemist",
+    disruptor: "Disruptor",
+    meduza: "Meduza",
+    dragon_knight: "Dragon knight",
+    lone_druid: "Lone druid",
+    gyrocopter: "Gyrocopter",
+    lich: "Lich",
+    tidehunter: "Tidehunter",
+    enigma: "Enigma"
 };
 
 export const heroes = [
@@ -368,5 +371,157 @@ export const heroes = [
         clazz: ClassEnum.hunter,
         icon: require('../images/miniheroes/sniper.png'),
         source: require('../images/hero/npc_dota_hero_sniper.png')
-    }
+    },
+    {
+        id: 35,
+        name: HeroEnum.viper,
+        race: RoleEnum.dragon,
+        clazz: ClassEnum.hunter,
+        icon: require('../images/miniheroes/viper.png'),
+        source: require('../images/hero/npc_dota_hero_viper.png')
+    },
+    {
+        id: 36,
+        name: HeroEnum.shadow_fiend,
+        race: RoleEnum.demon,
+        clazz: ClassEnum.warlock,
+        icon: require('../images/miniheroes/nevermore.png'),
+        source: require('../images/hero/npc_dota_hero_nevermore.png')
+    },
+    {
+        id: 37,
+        name: HeroEnum.lina,
+        race: RoleEnum.human,
+        clazz: ClassEnum.mage,
+        icon: require('../images/miniheroes/lina.png'),
+        source: require('../images/hero/npc_dota_hero_lina.png')
+    },
+    {
+        id: 38,
+        name: HeroEnum.terrorblade,
+        race: RoleEnum.demon,
+        clazz: ClassEnum.demon_hunter,
+        icon: require('../images/miniheroes/terrorblade.png'),
+        source: require('../images/hero/npc_dota_hero_terrorblade.png')
+    },
+    {
+        id: 39,
+        name: HeroEnum.doom,
+        race: RoleEnum.demon,
+        clazz: ClassEnum.warrior,
+        icon: require('../images/miniheroes/doom.png'),
+        source: require('../images/hero/npc_dota_hero_doom_bringer.png')
+    },
+    {
+        id: 40,
+        name: HeroEnum.kunkka,
+        race: RoleEnum.human,
+        clazz: ClassEnum.warrior,
+        icon: require('../images/miniheroes/kunkka.png'),
+        source: require('../images/hero/npc_dota_hero_kunkka.png')
+    },
+    {
+        id: 41,
+        name: HeroEnum.troll,
+        race: RoleEnum.troll,
+        clazz: ClassEnum.warrior,
+        icon: require('../images/miniheroes/troll_warlord.png'),
+        source: require('../images/hero/npc_dota_hero_troll_warlord.png')
+    },
+    {
+        id: 42,
+        name: HeroEnum.keeper_of_the_light,
+        race: RoleEnum.human,
+        clazz: ClassEnum.mage,
+        icon: require('../images/miniheroes/keeper_of_the_light.png'),
+        source: require('../images/hero/npc_dota_hero_keeper_of_the_light.png')
+    },
+    {
+        id: 43,
+        name: HeroEnum.necrophos,
+        race: RoleEnum.undead,
+        clazz: ClassEnum.warlock,
+        icon: require('../images/miniheroes/necrolyte.png'),
+        source: require('../images/hero/npc_dota_hero_necrolyte.png')
+    },
+    {
+        id: 44,
+        name: HeroEnum.templar_assasin,
+        race: RoleEnum.elf,
+        clazz: ClassEnum.assasin,
+        icon: require('../images/miniheroes/templar_assassin.png'),
+        source: require('../images/hero/npc_dota_hero_templar_assassin.png')
+    },
+    {
+        id: 45,
+        name: HeroEnum.alchemist,
+        race: RoleEnum.goblin,
+        clazz: ClassEnum.warlock,
+        icon: require('../images/miniheroes/alchemist.png'),
+        source: require('../images/hero/npc_dota_hero_alchemist.png')
+    },
+    {
+        id: 46,
+        name: HeroEnum.disruptor,
+        race: RoleEnum.orc,
+        clazz: ClassEnum.shaman,
+        icon: require('../images/miniheroes/disruptor.png'),
+        source: require('../images/hero/npc_dota_hero_disruptor.png')
+    },
+    {
+        id: 47,
+        name: HeroEnum.meduza,
+        race: RoleEnum.naga,
+        clazz: ClassEnum.hunter,
+        icon: require('../images/miniheroes/medusa.png'),
+        source: require('../images/hero/npc_dota_hero_medusa.png')
+    },
+    {
+        id: 48,
+        name: HeroEnum.dragon_knight,
+        race: RoleEnum.human,
+        clazz: ClassEnum.knight,
+        icon: require('../images/miniheroes/dragon_knight.png'),
+        source: require('../images/hero/npc_dota_hero_dragon_knight.png')
+    },
+    {
+        id: 49,
+        name: HeroEnum.lone_druid,
+        race: RoleEnum.beast,
+        clazz: ClassEnum.druid,
+        icon: require('../images/miniheroes/lone_druid.png'),
+        source: require('../images/hero/npc_dota_hero_lone_druid.png')
+    },
+    {
+        id: 50,
+        name: HeroEnum.gyrocopter,
+        race: RoleEnum.dwarf,
+        clazz: ClassEnum.mech,
+        icon: require('../images/miniheroes/gyrocopter.png'),
+        source: require('../images/hero/npc_dota_hero_gyrocopter.png')
+    },
+    {
+        id: 51,
+        name: HeroEnum.lich,
+        race: RoleEnum.undead,
+        clazz: ClassEnum.mage,
+        icon: require('../images/miniheroes/lich.png'),
+        source: require('../images/hero/npc_dota_hero_lich.png')
+    },
+    {
+        id: 52,
+        name: HeroEnum.tidehunter,
+        race: RoleEnum.naga,
+        clazz: ClassEnum.hunter,
+        icon: require('../images/miniheroes/tidehunter.png'),
+        source: require('../images/hero/npc_dota_hero_tidehunter.png')
+    },
+    {
+        id: 53,
+        name: HeroEnum.enigma,
+        race: RoleEnum.element,
+        clazz: ClassEnum.warlock,
+        icon: require('../images/miniheroes/enigma.png'),
+        source: require('../images/hero/npc_dota_hero_enigma.png')
+    },
 ];
